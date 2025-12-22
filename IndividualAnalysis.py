@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 #Sklearn
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.feature_selection import RFE
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -212,9 +212,10 @@ plt.xlabel('Feature Index')
 plt.ylabel('Feature Importance')
 plt.xticks(rotation=90)
 plt.show()
+
 #confusion matrix
 plt.figure(figsize=(8, 6))
-cm = confusion_matrix(test_y, pred_y)
+cm = confusion_matrix(y_test, pred_y)
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
             xticklabels=['high', 'low'],
             yticklabels=['high', 'low'])
