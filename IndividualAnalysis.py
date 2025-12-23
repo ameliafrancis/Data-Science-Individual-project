@@ -124,7 +124,7 @@ comp_L_Chain = (
     .apply(pd.Series)
     .add_prefix("LC_")
 )
-
+#Extract protein properties of amino acid sequence
 def extract_properties(sequence):
     analysis = ProteinAnalysis(sequence)
     mw = analysis.molecular_weight()
@@ -164,12 +164,12 @@ prop_L_Chain = (
     .apply(pd.Series)
     .add_prefix("LC_")
 )
-
+#merge protein properties and amino acid composition with dataframe
 filtered_antibody = pd.concat(
     [filtered_antibody, comp_Ag_Seq, comp_H_Chain, comp_L_Chain, prop_Ag_Seq, 
     prop_H_Chain, prop_L_Chain],
     axis=1 #specify to add new columns not rows
-) #merge protein properties with dataframe
+) 
 
 filtered_antibody.head()
 
@@ -178,6 +178,7 @@ filtered_antibody.head()
 X=filtered_antibody.drop(columns=["Ag_Seq", "Ab/Nano H_Chain AA", "Ab/Nano L_Chain AA", "-log10(Kd[M])", "Affinity_Kd(M)", "affinity_class"])
 y=filtered_antibody["affinity_class"]
 
+#split into test group and training group
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # train model
