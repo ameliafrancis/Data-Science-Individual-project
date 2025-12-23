@@ -6,11 +6,17 @@ This project contains the code to develop a RandomForest machine learning model 
 python >= 3.8
 
 pandas - dataframe manipulation
+
 numpy - mathematical operations
+
 seaborn - data visualisation
+
 scipy - statistics
+
 matplotlib - plotting
+
 tqdm - progress monitoring
 
 scikit-learn - machine learning
+
 biopython - protein sequence analysis
