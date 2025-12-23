@@ -87,7 +87,7 @@ filtered_antibody['affinity_class'] = np.where(
 )
 
 ###amino acid composition###
-#This section was inspired by @gallo33henrique's notebook
+#This section was inspired by @gallo33henrique's notebook (kaggle)
 tqdm.pandas() #enables progress monitoring
 
 def aa_comp(seq):
